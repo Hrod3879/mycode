@@ -1,0 +1,37 @@
+{
+  "sms_messages": [
+    {
+      "text": "Life is for service. - Fred Rogers"
+    },
+    {
+      "text": "To earn the respect (and eventually love) of your customers, you first have to respect those customers. That is why Golden Rule behavior is embraced by most of the winning companies. - Colleen Barrett, Southwest Airlines President Emerita"
+    },
+    {
+      "text": "Strive not to be a success, but rather to be of value. - Albert Einstein"
+    },
+    {
+      "text": "To keep a customer demands as much skill as to win one. - American Proverb"
+    },
+    {
+      "text": "To give without any reward, or any notice, has a special quality of its own. - Anne Morrow Lindeberg, Author and Aviator"
+    },
+    {
+      "text": "There is a spiritual aspect to our lives — when we give, we receive — when a business does something good for somebody, that somebody feels good about them! - Ben Cohen, Co-Founder Ben & Jerry's"
+    },
+    {
+      "text": "Successful people are always looking for opportunities to help others. Unsuccessful people are always asking, 'What's in it for me?' - Brian Tracy, Author and Motivational Speaker"
+    },
+    {
+      "text": "When you help others feel important, you help yourself feel important too. - David J. Schwartz, Author and Motivational Speaker"
+    },
+    {
+
+      "text": "Don't dwell on what went wrong. Instead, focus on what to do next. Spend your energies on moving forward toward finding the answer. - Denis Waitley, Author and Motivational Speaker"
+    },
+    {
+      "src": "YOUR_SENDER_PHONE_NUMBER",
+      "dst": "RECIPIENT_PHONE_NUMBER_10",
+      "text": "To give real service you must add something which cannot be bought or measured with money, and that is sincerity and integrity. - Don Alden Adams, President Watch Tower Bible and Tract Society of Pennsylvania"
+    }
+  ]
+}

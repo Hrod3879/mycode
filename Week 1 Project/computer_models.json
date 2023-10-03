@@ -1,0 +1,26 @@
+[
+  {
+      "model": "Dell Latitude 9430",
+      "price": 1399.99,
+      "os": "Windows 10",
+      "vendor": "Dell"
+  },
+  {
+      "model": "Acer Swift 5",
+      "price": 1149.99,
+      "os": "Windows 11",
+      "vendor": "CDW"
+  },
+  {
+    "model": " HP Elite Dragonfly G3",
+    "price": 1049.99,
+    "os": "Windows 11",
+    "vendor": "HP"
+  },
+  {
+    "model": "Apple MacBook Air M2",
+    "price": 1649.99,
+    "os": "Apple",
+    "vendor": "Apple"
+  }
+]
