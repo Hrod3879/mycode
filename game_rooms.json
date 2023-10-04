@@ -1,0 +1,20 @@
+{
+    "entrance": {
+        "description": "You are at the entrance of a dark cave. No Treasure in sight! There are passages to the north and east.",
+        "north": "cave1",
+        "east": "cave2"
+    },
+    "cave1": {
+        "description": "You are in a dim lit cave. DEAD END!!! Head back south.",
+        "south": "entrance"
+    },
+    "cave2": {
+        "description": "You are in a spooky cavern. I can see a faint gimmer of shiny stuff!! You can either go west and south.",
+        "west": "entrance",
+        "south": "treasure_room"
+    },
+    "treasure_room": {
+        "description": "You have found the treasure room! Congratulations, you win! Don't stay too long, you might run into a pirate!!",
+        "north": "cave2"
+    }
+}
