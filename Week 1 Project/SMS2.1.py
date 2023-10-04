@@ -1,3 +1,8 @@
+# refined version of SMS.py
+# cleaned up code, into a function
+# searched for a way to valdiate phone number format using regex. which i am not good at
+
+
 import json
 import random
 import re

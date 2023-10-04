@@ -1,3 +1,7 @@
+# added two JSON files to the project
+# one for security, while presenting hide my config from others
+# second import a quote bank for messages to be sent
+
 import json
 import random
 from twilio.rest import Client
