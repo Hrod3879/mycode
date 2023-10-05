@@ -1,5 +1,6 @@
 # created relative path for the config.json and Quote_Bank.json files
 
+
 import os
 import json
 import random
@@ -7,7 +8,7 @@ from twilio.rest import Client
 import PySimpleGUI as sg
 
 def send_random_sms_message(recipient_phone_number):
-    # Get the current working directory
+    # Get the current working directory where the python script is located
     current_dir = os.getcwd()
 
     # Construct the path to config.json and Quote_Bank.json relative to the current directory
