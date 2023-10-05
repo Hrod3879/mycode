@@ -1,6 +1,26 @@
-# Added a GUI page using PySimpleGUI and a Cookbook from https://www.pysimplegui.org/en/latest/cookbook/
-# This is a simple GUI program that sends a random SMS message to a recipient.
-# Changed some of the printed text messages to user
+""""
+    Author by: Hrod
+    Release Notes:
+    
+    SMS1.py - Used https://github.com/twilio/twilio-python as my building block on how to use the api.
+              All of the senstive infomration was exposed.
+    
+    SMS2.py - added two JSON files to the project.
+              one for security, while presenting hide my config from others.
+              second import a quote bank for messages to be sent.  
+              Use something like this: https://codebeautify.org/string-to-json-online; in order to convert plain text to json and various other examples online.
+    
+    SMS2.1.py - refined version of SMS.py.
+                cleaned up code, into a function.
+                searched for a way to valdiate phone number format using regex. which i am not good at.
+                
+    SMS3_GUI.py - Added a GUI page using PySimpleGUI and a Cookbook from https://www.pysimplegui.org/en/latest/cookbook/.
+                  This is a simple GUI program that sends a random SMS message to a recipient.
+                  Changed some of the printed text messages to user.
+                
+    SMS3.1_GUI.py - created relative path for the config.json and Quote_Bank.json files. Used some examples found on google.
+    
+"""
 
 import json
 import random

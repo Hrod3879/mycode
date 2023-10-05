@@ -27,14 +27,19 @@ import random
 from twilio.rest import Client
 import PySimpleGUI as sg
 
+# Function to get the path to config.json using relative path
+def get_config_path():
+    # Get the directory of the Python script (SMS3.1_GUI.py)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    # Construct the relative path to config.json in the Config-Files directory
+    config_path = os.path.join(script_dir, "..", "..", "Config-Files", "config.json")
+    return config_path
+
+# Function to send a random SMS message
 def send_random_sms_message(recipient_phone_number):
-    # Get the current working directory where the python script is located
-    current_dir = os.getcwd()
-
-    # Construct the path to config.json and Quote_Bank.json relative to the current directory
-    config_path = os.path.join(current_dir, "config.json")
-    quote_bank_path = os.path.join(current_dir, "Quote_Bank.json")
-
+    # Get the path to config.json
+    config_path = get_config_path()
+    
     # Load configuration from config.json
     with open(config_path, "r") as config_file:
         config = json.load(config_file)
@@ -44,8 +49,11 @@ def send_random_sms_message(recipient_phone_number):
     auth_token = config["auth_token"]
     twilio_phone_number = config["twilio_phone_number"]
 
+    # # Construct the path to Quote_Bank.json relative to the current directory
+    # quote_bank_path = "Quote_Bank.json"
+
     # Load quotes from JSON file
-    with open(quote_bank_path, "r") as file:
+    with open("Quote_Bank.json", "r") as file:
         data = json.load(file)
         sms_messages = data.get("sms_messages", [])
 
@@ -66,6 +74,8 @@ def send_random_sms_message(recipient_phone_number):
         sg.popup(f"Your message has been sent to {recipient_phone_number}!!! Here is your SID: {message.sid}")
     except Exception as e:
         sg.popup_error(f"An error occurred: {str(e)}")
+
+print("Current Working Directory:", os.getcwd())
         
 # **GUI CONFIG**
 
