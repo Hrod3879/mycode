@@ -4,7 +4,6 @@
 
 import json
 import random
-import re
 from twilio.rest import Client
 import PySimpleGUI as sg
 
@@ -39,9 +38,9 @@ def send_random_sms_message(recipient_phone_number):
         )
         sg.popup(f"Your message has been sent to {recipient_phone_number}!!! Here is your SID: {message.sid}")
     except Exception as e:
-        sg.popup_error(f"An error occurred: {str(e)}")
+        sg.popup_error(f"An error occurred: {str(e)}")    
         
-        
+           
 # **GUI CONFIG**
 
 # Define the initial layout for the PySimpleGUI window
@@ -51,7 +50,7 @@ initial_layout = [
     [sg.Multiline("1. This program sends random SMS messages using Twilio.\n"
                   "2. This account is on a trial that will expire in a few days.\n"
                   "3. By clicking 'Accept,' you agree to the terms and conditions, as well as the limitations of the program.\n"
-                  "4. You also agree to buy me a few beers of my choice, maybe shots as well.", size=(80, 10))],
+                  "4. You also agree to buy me a few beers of my choice, maybe shots as well lol.", size=(80, 10))],
     [sg.Button("Accept"), sg.Button("Decline")]
 ]
 
@@ -91,4 +90,3 @@ while True:
         program_window.close()  # Close the program window when done
 
 window.close()  # Close the initial window
-
