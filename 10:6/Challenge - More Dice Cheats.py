@@ -1,3 +1,4 @@
+# Author: HROD
 import random
 
 # Base class representing a dice player
