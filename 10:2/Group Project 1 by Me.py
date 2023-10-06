@@ -1,4 +1,5 @@
 '''
+Author Hrod
 What is your name?
 
 “Python is a _________ language that lets you _______ more _______ and integrate your ________ more effectively.
