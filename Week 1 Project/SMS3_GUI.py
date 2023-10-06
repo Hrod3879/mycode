@@ -7,7 +7,7 @@
     
     SMS2.py - added two JSON files to the project.
               one for security, while presenting hide my config from others.
-              second import a quote bank for messages to be sent.  
+              second, to import a quote bank for messages to be sent.  
               Use something like this: https://codebeautify.org/string-to-json-online; in order to convert plain text to json and various other examples online.
     
     SMS2.1.py - refined version of SMS.py.
@@ -17,8 +17,12 @@
     SMS3_GUI.py - Added a GUI page using PySimpleGUI and a Cookbook from https://www.pysimplegui.org/en/latest/cookbook/.
                   This is a simple GUI program that sends a random SMS message to a recipient.
                   Changed some of the printed text messages to user.
+    
+    Futher development:
                 
-    SMS3.1_GUI.py - created relative path for the config.json and Quote_Bank.json files. Used some examples found on google.
+    SMS3.1_GUI.py - fix relative path for the config.json so i can be ran from another directory for security purpose.
+                    fix the decline button to close the program.
+                    Add automation and group the messages into a single function.
     
 """
 
