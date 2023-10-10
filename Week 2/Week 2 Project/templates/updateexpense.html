@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="mt-5">Update Expense</h3>
+            <form action="/edit" method="POST">
+                <input type="hidden" value="{{expense.id}}" name="id" id="">
+                <div class="form-group">
+                    <label for="">Date</label>
+                    <input class="form-control" value={{expense.date}} type="date" name="date" id="date">
+                </div>
+                <div class="form-group">
+                    <label for="">Expense Name</label>
+                    <input class="form-control" value={{expense.expensename}} type="text" name="expensename" id="expensename">
+                </div>
+                <div class="form-group">
+                    <label for="">Expense Amount</label>
+                    <input class="form-control" value={{expense.amount}} type="text" name="amount" id="amount">
+                </div>
+                <div class="form-group">
+                    <label for="">Expense Category</label>
+                    <select class="form-control" name="category" id="category">
+                        <option value="food">Food</option>
+                        <option value="mortage">Mortage</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <input class="btn btn-danger" type="submit" value="Sumbit" id="">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<!--
+    This is main page where you add expenses
+
+
+-->
