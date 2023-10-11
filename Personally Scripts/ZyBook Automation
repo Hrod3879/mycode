@@ -1,0 +1,97 @@
+// ==UserScript==
+// @name         Zybooks Automation
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Automate tasks on Zybooks page
+// @author       Hrod
+// @match        https://*.zybooks.com/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // All your code goes here
+
+    // CLICK ALL RADIO BUTTONS
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    let index = 0;
+
+    function clickNextButton() {
+        if (index < radioButtons.length) {
+            radioButtons[index].click();
+            index++;
+            setTimeout(clickNextButton, 300); // adjust delay as needed
+        }
+    }
+
+    clickNextButton();
+
+    // CLICK ALL 2X SPEED BOXES
+    const x2Buttons = document.querySelectorAll('input[type="checkbox"]');
+    let index2 = 0;
+
+    function clickNextBox() {
+        if (index2 < x2Buttons.length) {
+            x2Buttons[index2].click();
+            index2++;
+            setTimeout(clickNextBox, 300); // adjust delay as needed
+        }
+    }
+
+    clickNextBox();
+
+    // CLICK ALL START BUTTONS
+    const startButtons = document.querySelectorAll('button[class="zb-button primary raised start-button start-graphic"]');
+    let index3 = 0;
+
+    function clickNextStartButton() {
+        if (index3 < startButtons.length) {
+            startButtons[index3].click();
+            index3++;
+            setTimeout(clickNextStartButton, 300); // adjust delay as needed
+        }
+    }
+
+    clickNextStartButton();
+
+    // CLICK ALL PLAY BUTTONS
+    function clickNextPlayButton() {
+        setTimeout(clickNextPlayButton, 100);
+        let playButtons = document.querySelectorAll('button[aria-label="Play"]');
+        let index4 = 0;
+
+        if (index4 < playButtons.length) {
+            playButtons[index4].click();
+            index4++;
+            setTimeout(clickNextPlayButton, 300); // adjust delay as needed
+        }
+
+        let pauseButtons = document.querySelectorAll('button[aria-label="Pause"]');
+        if (pauseButtons.length != 0) {
+            clickNextPlayButton;
+        }
+    }
+
+    clickNextPlayButton();
+
+    // CLICK ALL SHOW ANSWER BUTTONS
+    let index5 = 0;
+
+    function clickNextShowAnswerButton() {
+        setTimeout(clickNextShowAnswerButton, 100);
+        let showAnswerButtons = document.querySelectorAll('button[class="zb-button secondary show-answer-button"]');
+
+        if (index5 < showAnswerButtons.length) {
+            showAnswerButtons[index5].click();
+            setTimeout(function() {
+                showAnswerButtons[index5].click();
+            }, 100); // adjust delay as needed
+
+            index5++;
+            setTimeout(clickNextShowAnswerButton, 300); // adjust delay as needed
+        }
+    }
+
+    clickNextShowAnswerButton();
+})();

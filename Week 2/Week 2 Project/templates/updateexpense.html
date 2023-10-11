@@ -4,19 +4,20 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h3 class="mt-5">Add Expense</h3>
-            <form action="/addexpense" method="POST">
+            <h3 class="mt-5">Update Expense</h3>
+            <form action="/edit" method="POST">
+                <input type="hidden" value="{{expense.id}}" name="id" id="">
                 <div class="form-group">
                     <label for="">Date</label>
-                    <input class="form-control" type="date" name="date" id="date">
+                    <input class="form-control" value={{expense.date}} type="date" name="date" id="date">
                 </div>
                 <div class="form-group">
                     <label for="">Expense Name</label>
-                    <input class="form-control" type="text" name="expensename" id="expensename">
+                    <input class="form-control" value={{expense.expensename}} type="text" name="expensename" id="expensename">
                 </div>
                 <div class="form-group">
                     <label for="">Expense Amount</label>
-                    <input class="form-control" type="text" name="amount" id="amount">
+                    <input class="form-control" value={{expense.amount}} type="text" name="amount" id="amount">
                 </div>
                 <div class="form-group">
                     <label for="">Expense Category</label>
@@ -27,7 +28,7 @@
                         <option value="other">Other</option>
                     </select>
                 </div>
-                <input class="btn btn-danger" type="submit" value="Add" id="">
+                <input class="btn btn-danger" type="submit" value="Sumbit" id="">
             </form>
         </div>
     </div>
@@ -35,7 +36,8 @@
 
 {% endblock %}
 <!--
-    This is main page where you add expenses
-    
+    This is main page where you edit expenses
+    use this to pull data <input type="hidden" value="{{expense.id}}" name="id" id=""> and redirect thru def edit()
+    in order to match variables in the data base table
 
 -->

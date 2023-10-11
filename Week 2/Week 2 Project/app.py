@@ -25,10 +25,37 @@ class Expense(db.Model):
 def add():
     return render_template('add.html')
 
-# Route for deleting an expense (not fully implemented)
-@app.delete('/detele')
-def delete():
-    pass
+# Route for deleting an expense uses both the post and delete methods; first we query and use the class to identify ID
+@app.route('/delete/<int:id>', methods=['POST', 'DELETE'])
+def delete(id):
+    expense = Expense.query.filter_by(id=id).first()
+    db.session.delete(expense)
+    db.session.commit()
+    return redirect('/expenses')
+
+# route for updating entries, use the line from above to query by id and create a new html page
+@app.route('/updateexpense/<int:id>')
+def updateexpense(id):
+    expense = Expense.query.filter_by(id=id).first()
+    return render_template('updateexpense.html', expense=expense)
+
+# retrive the id and variables from the hidden id in updateexpense in order to update data base with new values
+@app.route('/edit', methods=['POST'])
+def edit():
+    id = request.form['id']
+    date = request.form['date']
+    expensename = request.form['expensename']
+    amount = request.form['amount']
+    category = request.form['category']
+    
+    expense = Expense.query.filter_by(id=id).first()
+    expense.date = date
+    expense.expensename = expensename
+    expense.amount = amount
+    expense.category = category
+    db.session.commit()
+    return redirect('/expenses')
+    
 
 # Route to expenses or Home Page
 @app.route('/expenses')
@@ -46,11 +73,11 @@ def addexpense():
     category = request.form['category']
     print(date +' '+ expensename +' '+ amount +' '+ category)
     
-    # How i explained it: First date(in class Expense) = date(in functon addexpense) and so on
-    # Chatgpt explained it Create a new Expense object and populate it with form data
+    # How i explained it: First date(in class Expense) = date(in functon addexpense) and so on. New Expense object and populate it with form data
     expense = Expense(date=date, expensename=expensename, amount=amount, category=category)
     
-    # Add the new expense object to the session
+    # Add the new expense object to the sessionsqmycode/Week 2/Week 2 Project/env
+    
     db.session.add(expense)
     
     # Commit the changes to the database

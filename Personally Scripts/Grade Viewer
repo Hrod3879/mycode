@@ -1,0 +1,39 @@
+// ==UserScript==
+// @name         Grade-Viewer
+// @namespace    https://my.wgu.edu/*
+// @version      1.0
+// @description  show the percentage for the progress bar
+// @author       Hrod
+// @match        https://my.wgu.edu/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    window.addEventListener("load", main, false);
+
+    function main(evt) {
+        let scores = 0;
+        var timer = setInterval(runsOnJSLoadFinish, 111);
+
+        function runsOnJSLoadFinish() {
+            scores = document.getElementsByClassName("score-bar");
+            if (scores.length != 0) {
+                clearInterval(timer);
+                for (let i = 0; i < scores.length; i++) {
+                    placeScore(scores[i]);
+                }
+            }
+        }
+    }
+
+    function placeScore(parent) {
+        let right = parent.getElementsByClassName("value")[0].style.right;
+        let percent = parseInt(right.substring(0, right.length - 1));
+        // Store the original innerHTML in a variable
+        let currentHtml = parent.innerHTML;
+        // Update the innerHTML of the parent element
+        parent.innerHTML = `<span style='font-size:2rem'>${100 - Number(percent)}%</span>` + currentHtml;
+    }
+})();
