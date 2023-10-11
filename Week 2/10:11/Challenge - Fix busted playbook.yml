@@ -1,0 +1,23 @@
+---
+- name: Using variables within our Playbook
+  hosts: planet-express  # defined within the inventory
+  connection: ssh
+  gather_facts: true    # required for ansible_facts
+
+  tasks:
+    - name: Display all ansible_facts
+      debug:
+        var: ansible_facts
+
+    - name: What does ansible_facts.os_family contain?
+      debug:
+        var: ansible_facts['ansible_distribution']
+
+    - name: What does ansible_facts.lsb contain?
+      debug:
+        var: ansible_facts.lsb
+
+    - name: Some task that runs ONLY on hosts that match our conditional
+      debug:
+        var: "I am a Debian host that is running AT LEAST version 18 of my OS"
+      when: ansible_facts['ansible_distribution'] == "Debian" and ansible_facts['ansible_distribution_major_version'] | int >= 18

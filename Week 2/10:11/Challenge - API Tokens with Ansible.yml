@@ -1,0 +1,38 @@
+---
+- name: Fetch APOD Image
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Read API Key from api_key.yaml
+      include_vars:
+        file: api_key.yaml
+        name: api_key
+
+    - name: Prompt for Date
+      pause:
+        prompt: "Enter the date (YYYY-MM-DD) for the APOD image: "
+      register: user_input
+
+    - name: Fetch APOD Image
+      uri:
+        url: "https://api.nasa.gov/planetary/apod"
+        method: GET
+        body_format: json
+        status_code: 200
+        timeout: 30
+        follow_redirects: all
+        validate_certs: yes
+        headers:
+          Content-Type: application/json
+        params:
+          date: "{{ user_input.user_input }}"
+          api_key: "{{ api_key.api_key }}"
+      register: apod_response
+
+    - name: Display APOD Information
+      debug:
+        msg: |
+          Title: {{ apod_response.json.title }}
+          Date: {{ user_input.user_input }}
+          Explanation: {{ apod_response.json.explanation }}
+          Image URL: {{ apod_response.json.url }}
