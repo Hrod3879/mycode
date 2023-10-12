@@ -30,9 +30,66 @@
         </div>
     </div>
     {% endfor %}
+<!--Column for adding Expense Total by category and a finally total-->
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="mt-5">Expense Total</h3>
+            <div class="card shadow mb-3 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Food</div>
+                        <div class="col-md-6">{{t_food}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-3 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Rent</div>
+                        <div class="col-md-6">{{t_rent}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-3 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Entertainment</div>
+                        <div class="col-md-6">{{t_entertainment}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-3 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Other</div>
+                        <div class="col-md-6">{{t_other}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow mb-3 bg-white rounded">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">Total</div>
+                        <div class="col-md-6">{{total}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3 class="mt-5">Real Life Problems</h3>
+            <div class="text-center">
+                <picture>
+                    <div>
+                        <iframe src="https://giphy.com/embed/yIxNOXEMpqkqA" width="500" height="390" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-month-middle-yIxNOXEMpqkqA"></a></p>
+                    </div>
+                </picture>
+            </div> 
+        </div>
+    </div>
 </div>
 {% endblock %}
 <!--
     This page allows you to see the data stored in the db
     Using {{ vars }} to display data
+    Use t_ variables
 -->

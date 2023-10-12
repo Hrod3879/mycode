@@ -62,7 +62,23 @@ def edit():
 def expenses():
     # retrieves all of the objects store in DB table, mapping data store in DB tables to app code
     expenses = Expense.query.all()
-    return render_template('expenses.html', expenses=expenses)
+    total = 0
+    t_entertainment = 0
+    t_other = 0
+    t_food = 0
+    t_rent = 0
+    # Loop thru each category in order to add up indivilual category
+    for expense in expenses:
+        total += expense.amount
+        if expense.category == 'entertainment':
+            t_entertainment += expense.amount
+        elif expense.category == 'other':
+            t_other += expense.amount
+        elif expense.category == 'food':
+            t_food += expense.amount
+        elif expense.category == 'rent':
+            t_rent += expense.amount
+    return render_template('expenses.html', expenses=expenses, total=total, t_other=t_other, t_rent=t_rent, t_entertainment=t_entertainment, t_food=t_food)
 
 # Build a route to /addexpense, then grabs the data from the 'add.html' form and assigns it to variables
 @app.route('/addexpense',methods=['POST'])
