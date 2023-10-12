@@ -1,0 +1,16 @@
+---
+- name: Tuesday Challenge
+  hosts: planet express
+  connection: network_cli
+  gather_facts: yes
+
+  tasks:
+    - name: print out the variable named "result"
+      debug:
+        var: result
+
+    - name: Using APT to install sl
+      apt:
+        name: sl
+        state: present
+      register: result

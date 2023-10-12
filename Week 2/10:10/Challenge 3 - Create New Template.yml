@@ -1,0 +1,15 @@
+---
+- name: CHALLENGE 03
+  hosts: localhost  # You can change this to your target hosts if needed
+  gather_facts: false  # Disable fact gathering if not required
+
+  tasks:
+    - name: Create mission orders
+      template:
+        src: templates/mission-orders.txt.j2
+        dest: "~/{{ item.mission }}-mission-orders.txt"
+      loop:
+        - { mission: "primary", planet: "luna park" }
+        - { mission: "secondary", planet: "cineplex 14" }
+      vars:
+        planet: "{{ item.planet }}"
