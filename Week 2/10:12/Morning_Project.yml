@@ -1,0 +1,73 @@
+---
+- name: Update and Upgrade Systems
+  hosts: my_host
+  gather_facts: true
+
+  tasks:
+    - name: Run apt-get update
+      become: true
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Run apt-get upgrade
+      become: true
+      ansible.builtin.apt:
+        upgrade: true
+
+- name: Install Fail2Ban and Import Configuration
+  hosts: my_host
+  gather_facts: true
+
+  tasks:
+    - name: Install Fail2Ban
+      become: true
+      ansible.builtin.apt:
+        name: fail2ban
+        state: present
+
+    - name: Configure Fail2Ban
+      become: true
+      ansible.builtin.template:
+        src: /home/student/mycode/morning_project/jail.conf.j2
+        dest: /etc/fail2ban/jail.local
+      notify: restart fail2ban
+
+    - name: Set file permissions for jail.local
+      become: true
+      ansible.builtin.file:
+        path: /etc/fail2ban/jail.local
+        owner: root
+        group: root
+        mode: '0644'
+
+  handlers:
+    - name: Restart fail2ban
+      ansible.builtin.service:
+        name: fail2ban
+        state: restarted
+
+- name: Install net-tools and Run ifconfig
+  hosts: my_host
+  gather_facts: true
+
+  tasks:
+    - name: Install net-tools
+      become: true
+      ansible.builtin.apt:
+        name: net-tools
+        state: present
+
+    - name: Run ifconfig and Capture IP and MAC Addresses
+      become: true
+      ansible.builtin.shell: ifconfig
+      register: ifconfig_output
+
+    - name: Display ifconfig output
+      ansible.builtin.debug:
+        var: ifconfig_output.stdout_lines
+
+- name: Install netaddr
+    pip:
+      name: netaddr
+
+      
