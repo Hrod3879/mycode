@@ -1,4 +1,4 @@
-[alpha, bravo, charlie]
+[my_host]
 alpha ansible_host=10.10.93.246 ansible_user=student ansible_ssh_pass=alta3
 brave ansible_host=10.11.60.178 ansible_user=student ansible_ssh_pass=alta3
 charlie ansible_host=10.5.3.57 ansible_user=student ansible_ssh_pass=alta3
