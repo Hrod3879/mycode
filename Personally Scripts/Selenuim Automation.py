@@ -20,5 +20,21 @@ time.sleep(2)
 elem.click()
 time.sleep(7)
 
+# refresh web page
+driver.refresh()
+
+# Use of forward and back buttons
+time.sleep(2)
+driver.back()
+time.sleep(5)
+driver.forward()
+time.sleep(3)
+
+#Scroll up and down
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+time.sleep(2)
+driver.execute_script("window.scrollTo(0, 0);")
+
+
 # Close the browser
 driver.quit()
